@@ -19,6 +19,12 @@ export default function TextForm(props) {
     setText(newText);
   };
 
+  const handleCopyClick = () => {
+    let temptext = document.querySelector("#myBox");
+    temptext.select();
+    navigator.clipboard.writeText(temptext.value);
+  };
+
   const handleFindChange = (event) => {
     fsetWord(event.target.value);
   };
@@ -54,13 +60,32 @@ export default function TextForm(props) {
         />
       </div>
 
-      <button className="btn btn-primary me-2 my-2" onClick={handleUpperClick}>
+      <button
+        type="button"
+        className="btn btn-primary me-2 my-2"
+        onClick={handleUpperClick}
+      >
         Convert to UPPERCASE
       </button>
-      <button className="btn btn-primary me-2 my-2" onClick={handleLowerClick}>
+      <button
+        type="button"
+        className="btn btn-primary me-2 my-2"
+        onClick={handleLowerClick}
+      >
         Convert to lowercase
       </button>
-      <button className="btn btn-danger me-2 my-2" onClick={handleClearClick}>
+      <button
+        type="button"
+        className="btn btn-success me-2 my-2"
+        onClick={handleCopyClick}
+      >
+        Copy Text
+      </button>
+      <button
+        type="button"
+        className="btn btn-danger me-2 my-2"
+        onClick={handleClearClick}
+      >
         Clear Text
       </button>
 
@@ -82,12 +107,17 @@ export default function TextForm(props) {
             onChange={handleReplaceChange}
           />
           <button
+            type="button"
             className="btn btn-primary mx-2 my-2"
             onClick={handleReplaceClick}
           >
             Replace Text
           </button>
-          <button className="btn btn-danger" onClick={handleResetClick}>
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={handleResetClick}
+          >
             Reset
           </button>
         </div>
