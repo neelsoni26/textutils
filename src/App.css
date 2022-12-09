@@ -1,0 +1,4 @@
+input[type="text"] {
+  display: inline !important;
+  width: auto !important;
+}
