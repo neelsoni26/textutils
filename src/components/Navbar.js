@@ -28,8 +28,18 @@ export default function Navbar(props) {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            style={{
+              color:
+                props.mode === "light" ? "#000000e6" : "#C9D1D9 !important",
+            }}
           >
-            <span className="navbar-toggler-icon" />
+            <span
+              className="navbar-toggler-icon"
+              style={{
+                color:
+                  props.mode === "light" ? "#000000e6" : "#C9D1D9 !important",
+              }}
+            />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
