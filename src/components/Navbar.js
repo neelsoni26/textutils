@@ -4,9 +4,20 @@ import PropTypes from "prop-types";
 export default function Navbar(props) {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav
+        className={`navbar navbar-expand-lg`}
+        style={{
+          backgroundColor: props.mode === "light" ? "#F8F9FA" : "#161B22",
+        }}
+      >
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <a
+            className="navbar-brand"
+            href="/"
+            style={{
+              color: props.mode === "light" ? "#000000E6" : "#C9D1D9",
+            }}
+          >
             {props.title}
           </a>
           <button
@@ -23,26 +34,50 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href="/"
+                  style={{
+                    color: props.mode === "light" ? "#000000e6" : "#C9D1D9",
+                  }}
+                >
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <a
+                  className="nav-link"
+                  href="/"
+                  style={{
+                    color: props.mode === "light" ? "#000000E6" : "#C9D1D9",
+                  }}
+                >
                   {props.about}
                 </a>
               </li>
             </ul>
             <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
+              <div
+                className={`form-check form-switch`}
+                style={{
+                  color: props.mode === "light" ? "#000000E6" : "#C9D1D9",
+                }}
+              >
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault"
+                  onClick={props.toggleMode}
+                />
+                <label
+                  className={`form-check-label`}
+                  htmlFor="flexSwitchCheckDefault"
+                >
+                  {props.mode === "light" ? "Enable" : "Disable"} Dark Mode
+                </label>
+              </div>
             </form>
           </div>
         </div>
@@ -54,9 +89,11 @@ export default function Navbar(props) {
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
   about: PropTypes.string.isRequired,
+  mode: PropTypes.string.isRequired,
 };
 
 Navbar.defaultProps = {
   title: "Default Title",
   about: "About",
+  mode: "light",
 };

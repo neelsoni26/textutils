@@ -52,7 +52,13 @@ export default function TextForm(props) {
 
   return (
     <>
-      <h1>{props.heading}</h1>
+      <h1
+        style={{
+          color: props.mode === "light" ? "#000000E6" : "#C9D1D9",
+        }}
+      >
+        {props.heading}
+      </h1>
       <div className="mb-3">
         <textarea
           className="form-control"
@@ -62,6 +68,10 @@ export default function TextForm(props) {
           rows={8}
           value={text}
           onChange={handleOnClick}
+          style={{
+            backgroundColor: props.mode === "light" ? "#FFFFFF" : "#30363D",
+            color: props.mode === "light" ? "#000000" : "#C9D1D9",
+          }}
         />
       </div>
 
@@ -108,14 +118,28 @@ export default function TextForm(props) {
             placeholder="Enter the word..."
             value={fWord}
             onChange={handleFindChange}
+            style={{
+              backgroundColor: props.mode === "light" ? "#FFFFFF" : "#30363D",
+              color: props.mode === "light" ? "#000000" : "#C9D1D9",
+            }}
           />
-          to
+          <span
+            style={{
+              color: props.mode === "light" ? "#000000E6" : "#C9D1D9",
+            }}
+          >
+            to
+          </span>
           <input
             type="text"
             className="form-control  mx-2 my-2"
             placeholder="Replace with..."
             value={rWord}
             onChange={handleReplaceChange}
+            style={{
+              backgroundColor: props.mode === "light" ? "#FFFFFF" : "#30363D",
+              color: props.mode === "light" ? "#000000" : "#C9D1D9",
+            }}
           />
           <button
             type="button"
@@ -134,14 +158,24 @@ export default function TextForm(props) {
         </div>
       </div>
 
-      <div className="my-3">
+      <div
+        className="my-3"
+        style={{
+          color: props.mode === "light" ? "#000000E6" : "#C9D1D9",
+        }}
+      >
         <h2>Your text summary</h2>
         <p>
           {text.split(" ").length} Words and {text.length} Characters
         </p>
         <p>{text.split(" ").length * 0.008} Minutes of read</p>
       </div>
-      <div className="my-3">
+      <div
+        className="my-3"
+        style={{
+          color: props.mode === "light" ? "#000000E6" : "#C9D1D9",
+        }}
+      >
         <h2>Preview</h2>
         <p>{text}</p>
       </div>
