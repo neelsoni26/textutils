@@ -7,27 +7,32 @@ export default function TextForm(props) {
 
   const handleClearClick = () => {
     setText("");
+    props.showAlert("Text is cleared", "success");
   };
 
   const handleUpperClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to Uppercase", "success");
   };
 
   const handleLowerClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to lowercase", "success");
   };
 
   const handleCopyClick = () => {
     let temptext = document.querySelector("#myBox");
     temptext.select();
     navigator.clipboard.writeText(temptext.value);
+    props.showAlert("Text has been copied", "success");
   };
 
   const handleExtraSpaceClick = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.showAlert("Extra space removed", "success");
   };
 
   const handleFindChange = (event) => {
@@ -39,6 +44,7 @@ export default function TextForm(props) {
   const handleReplaceClick = () => {
     let newText = text.replaceAll(fWord, rWord);
     setText(newText);
+    props.showAlert(`${fWord} is replaced with ${rWord}`, "success");
   };
 
   const handleResetClick = () => {
