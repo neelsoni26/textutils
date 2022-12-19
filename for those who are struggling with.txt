@@ -1,0 +1,30 @@
+for those who are struggling with
+Attempted import error: 'Switch' is not exported from 'react-router-dom'.
+
+1). Uninstall Previous Version-
+npm uninstall react-router-dom
+2). Install Older version-
+npm install react-router-dom@5.2.0
+
+because after v6 switch is not included in react-router-dom 
+
+another solution is :-
+for new version of react-router-dom
+
+
+Instead of using like this
+
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/users">
+          <Users />
+        </Route>
+      </Switch>
+Use like this...
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="users/*" element={<Users />} />
+      </Routes>

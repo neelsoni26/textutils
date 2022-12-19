@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
@@ -11,15 +12,15 @@ export default function Navbar(props) {
         }}
       >
         <div className="container-fluid">
-          <a
+          <Link
             className="navbar-brand"
-            href="/"
+            to="/"
             style={{
               color: props.mode === "light" ? "#000000E6" : "#C9D1D9",
             }}
           >
             {props.title}
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -44,27 +45,27 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link active"
                   aria-current="page"
-                  href="/"
+                  to="/"
                   style={{
                     color: props.mode === "light" ? "#000000e6" : "#C9D1D9",
                   }}
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link"
-                  href="/"
+                  to="/About"
                   style={{
                     color: props.mode === "light" ? "#000000E6" : "#C9D1D9",
                   }}
                 >
                   {props.about}
-                </a>
+                </Link>
               </li>
             </ul>
             <form className="d-flex" role="search">
