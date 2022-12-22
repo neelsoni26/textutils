@@ -4,7 +4,10 @@ With this app users can play with text such as\
 Converting text to Uppercase,\
 Converting to Lowercase,\
 Remove extra spaces,\
-Replacing the word
+Replacing the word\
+Count the Words and Characters\
+Preview of text\
+Dark mode also available
 
 ## Getting Started with Create React App
 
