@@ -9,6 +9,8 @@ Count the Words and Characters,\
 Preview of text,\
 Dark mode also available
 
+Access this webapp at http://13.232.1.246
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
