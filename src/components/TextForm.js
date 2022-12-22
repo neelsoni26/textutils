@@ -56,6 +56,16 @@ export default function TextForm(props) {
   const [fWord, fsetWord] = useState("");
   const [rWord, rsetWord] = useState("");
 
+  function countWords(s) {
+    s = s.replace(/(^\s*)|(\s*$)/gi, ""); //exclude  start and end white-space
+    s = s.replace(/[ ]{2,}/gi, " "); //2 or more space to 1
+    s = s.replace(/\n /, "\n"); // exclude newline with a start spacing
+    return s.split(" ").filter(function (str) {
+      return s !== "";
+    }).length;
+    //return s.split(' ').filter(String).length; - this can also be used
+  }
+
   return (
     <>
       <h1
@@ -172,7 +182,7 @@ export default function TextForm(props) {
       >
         <h2>Your text summary</h2>
         <p>
-          {text.split(" ").length} Words and {text.length} Characters
+          {countWords(text)} Words and {text.length} Characters
         </p>
         <p>{text.split(" ").length * 0.008} Minutes of read</p>
       </div>
