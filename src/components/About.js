@@ -1,9 +1,15 @@
 import React from "react";
 
-export default function About() {
+export default function About(props) {
   return (
     <>
-      <h1>About Us</h1>
+      <h1
+        style={{
+          color: props.mode === "light" ? "#000000E6" : "#C9D1D9",
+        }}
+      >
+        About Us
+      </h1>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingOne">

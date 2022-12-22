@@ -39,6 +39,7 @@ function App() {
         <div className="container my-3">
           <Routes>
             <Route
+              exact
               path="/"
               element={
                 <TextForm
@@ -48,7 +49,7 @@ function App() {
                 />
               }
             />
-            <Route path="/About" element={<About />} />
+            <Route exact path="/About" element={<About mode={mode} />} />
           </Routes>
         </div>
       </BrowserRouter>
