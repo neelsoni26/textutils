@@ -26,7 +26,7 @@ export default function TextForm(props) {
     let temptext = document.querySelector("#myBox");
     temptext.select();
     navigator.clipboard.writeText(temptext.value);
-    props.showAlert("Text has been copied", "success");
+    props.showAlert("Text Copied", "success");
   };
 
   const handleExtraSpaceClick = () => {
@@ -95,6 +95,7 @@ export default function TextForm(props) {
         type="button"
         className="btn btn-primary me-2 my-2"
         onClick={handleUpperClick}
+        disabled={text.length === 0}
       >
         Convert to UPPERCASE
       </button>
@@ -102,6 +103,7 @@ export default function TextForm(props) {
         type="button"
         className="btn btn-primary me-2 my-2"
         onClick={handleLowerClick}
+        disabled={text.length === 0}
       >
         Convert to lowercase
       </button>
@@ -109,6 +111,7 @@ export default function TextForm(props) {
         type="button"
         className="btn btn-primary me-2 my-2"
         onClick={handleExtraSpaceClick}
+        disabled={text.length === 0}
       >
         Remove Extra Space
       </button>
@@ -116,6 +119,7 @@ export default function TextForm(props) {
         type="button"
         className="btn btn-success me-2 my-2"
         onClick={handleCopyClick}
+        disabled={text.length === 0}
       >
         Copy Text
       </button>
@@ -123,6 +127,7 @@ export default function TextForm(props) {
         type="button"
         className="btn btn-danger me-2 my-2"
         onClick={handleClearClick}
+        disabled={text.length === 0}
       >
         Clear Text
       </button>
@@ -161,6 +166,7 @@ export default function TextForm(props) {
             type="button"
             className="btn btn-primary mx-2 my-2"
             onClick={handleReplaceClick}
+            disabled={text.length === 0}
           >
             Replace Text
           </button>
@@ -168,6 +174,7 @@ export default function TextForm(props) {
             type="button"
             className="btn btn-danger"
             onClick={handleResetClick}
+            disabled={text.length === 0}
           >
             Reset
           </button>
@@ -193,11 +200,7 @@ export default function TextForm(props) {
         }}
       >
         <h2>Preview</h2>
-        <p>
-          {text.length > 0
-            ? text
-            : "Enter something in big box above to preview it here."}
-        </p>
+        <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
       </div>
     </>
   );
